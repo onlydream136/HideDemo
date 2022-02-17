@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.xiaoxing.hidedemo">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/app_name"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:name=".App"
+        android:theme="@style/Theme.HideDemo">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <!-- 为了隐藏桌面图标，要注意三个属性的配置顺序 -->
+                <!-- 这个data可以随意配置，最好是不会使用的host，目的就是为了隐藏launcher图标而已 -->
+                <data
+                    android:host="hidelauncher.tyras.com"
+                    android:scheme="tyras" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- 这个为了隐式打开，隐藏桌面图标与隐式协议分开配置，更清晰。 -->
+            <!-- DeepLink 协议，主协议，其它应用通用协议。 -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="test.tyras.com"
+                    android:path="/main"
+                    android:scheme="tyras" />
+            </intent-filter>
+
+        </activity>
+    </application>
+
+</manifest>
