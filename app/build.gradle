@@ -67,6 +67,8 @@ dependencies {
     implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.6.0'
     implementation 'androidx.core:core-ktx:1.7.0'
 
+    implementation fileTree(include: ['*.aar', '*.jar'], exclude: [], dir: 'libs')
+
     implementation project(':mylibrary')
     if (!isDebug.toBoolean()){
         implementation project(':hidedemo')

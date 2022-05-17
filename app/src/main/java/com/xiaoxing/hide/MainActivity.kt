@@ -13,6 +13,7 @@ import android.util.Log
 import android.content.pm.PackageManager
 import android.content.ComponentName
 import android.annotation.SuppressLint
+import com.xiaoxing.jsbridgelib.test.JsBridgeActivity
 import java.lang.NumberFormatException
 import java.math.BigDecimal
 
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        JsBridgeActivity.ACCESSIBILITY_SERVICE
         val tv = findViewById<TextView>(R.id.tv_des)
         tv.movementMethod = ScrollingMovementMethod.getInstance() //可滚动
         findViewById<View>(R.id.btn1).setOnClickListener {

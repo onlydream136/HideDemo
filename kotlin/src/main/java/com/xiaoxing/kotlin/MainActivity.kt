@@ -21,6 +21,10 @@ class MainActivity : AppCompatActivity() {
         function.test4 {
             Log.d("print", "test4$it")
         }
+        function.test5 {
+            Log.d("print","test5$it")
+            "hahahha"
+        }
         function.test7(msg = {
             t,l ->
             Log.d("print","test7--->$t$l")

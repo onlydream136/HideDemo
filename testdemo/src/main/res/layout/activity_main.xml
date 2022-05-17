@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#8AED79"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/tv_button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#2ECCE8"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
+        android:text="帐号凭据"/>
+
+    <TextView
+        android:id="@+id/tv_button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="#2ECCE8"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
+        android:text="实际地址"/>
+
+
+    <TextView
+        android:id="@+id/tv_button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="#2ECCE8"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
+        android:text="电话号码"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_view"
+        android:layout_width="185dp"
+        android:layout_height="185dp"
+        android:layout_marginTop="20dp"
+        app:lottie_fileName="test.json"
+        app:lottie_loop="true"
+        app:lottie_autoPlay="false" />
+
+    <TextView
+        android:id="@+id/tv_button"
+        android:text="点击播放"
+        android:padding="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
