@@ -5,7 +5,7 @@
       <map>
         <entry key="../../../.gradle/caches/transforms-3/fd17c257fe311b965951341cf7f8db55/transformed/jetified-jsbridgelib-release/res/layout/activity_main.xml" value="0.16510416666666666" />
         <entry key="app/src/main/res/layout/activity_auto_fill.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.5" />
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.19322916666666667" />
         <entry key="hidedemo/src/main/res/layout/activity_hide_main.xml" value="0.1358695652173913" />
         <entry key="hidedemo/src/main/res/layout/activity_main.xml" value="0.146875" />

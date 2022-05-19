@@ -74,4 +74,6 @@ dependencies {
         implementation project(':hidedemo')
     }
     api "com.github.zengzzGithub:AnkoX:1.0.2"
+
+    implementation 'com.github.onlydream136.demo:chen:v1.0.0'
 }

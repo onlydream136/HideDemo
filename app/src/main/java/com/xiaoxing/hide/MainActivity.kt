@@ -1,24 +1,31 @@
 package com.xiaoxing.hide
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import com.xiaoxing.hide.R
-import android.widget.TextView
-import android.text.method.ScrollingMovementMethod
-import android.view.View
-import android.content.Intent
-import android.net.Uri
-import com.alibaba.android.arouter.launcher.ARouter
-import android.util.Log
-import android.content.pm.PackageManager
-import android.content.ComponentName
 import android.annotation.SuppressLint
+import android.content.ComponentName
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
+import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
+import android.util.Log
+import android.view.View
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import com.alibaba.android.arouter.launcher.ARouter
 import com.xiaoxing.jsbridgelib.test.JsBridgeActivity
-import java.lang.NumberFormatException
+import com.yolanda.jsbridgelib.util.AppJsonUtils
 import java.math.BigDecimal
+import java.util.concurrent.*
 
 class MainActivity : AppCompatActivity() {
     private var position = 0
+    val threadPoolExecutor =
+        ThreadPoolExecutor(2, 4, 1, TimeUnit.SECONDS, LinkedBlockingQueue<Runnable>(6))
+    val fixedThreadPool = Executors.newFixedThreadPool(2)
+    val cacheThreadPool = Executors.newCachedThreadPool()
+    val singleThreadExecutor = Executors.newSingleThreadExecutor()
+    val scheduledThreadPool: ExecutorService = Executors.newScheduledThreadPool(5)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -44,7 +51,51 @@ class MainActivity : AppCompatActivity() {
                 .withString("key", "我是app壳调过来的")
                 .navigation()
         }
+
+        findViewById<View>(R.id.btn5).setOnClickListener{
+            for (i in 1..10) {
+                val command = Runnable {
+                    try {
+                        Thread.sleep(3000)
+                        Log.e("print","当前线程个数：$i, 线程名：${Thread.currentThread().name}")
+                    } catch (e: InterruptedException) {
+                        e.printStackTrace()
+                    }
+                }
+                threadPoolExecutor.execute(command)
+            }
+        }
+
         Log.d("print",Utils.timeStamp2Date(null))
+//
+//
+//
+//
+//        for (i in 1..30) {
+//            val runnable = Runnable {
+//                try {
+//                    Thread.sleep(3000)
+//                    Log.e("Thread++", i.toString())
+//                    Log.e("当前线程++", Thread.currentThread().name)
+//                } catch (e: InterruptedException) {
+//                    e.printStackTrace()
+//                }
+//            }
+//            threadPoolExecutor.execute(runnable)
+////            threadPoolExecutor.execute(runnable)
+//        }
+
+        for (i in 1..10) {
+            val command = Runnable {
+                try {
+                    Thread.sleep(3000)
+                    Log.e("print","当前线程个数：$i, 线程名：${Thread.currentThread().name}")
+                } catch (e: InterruptedException) {
+                    e.printStackTrace()
+                }
+            }
+            threadPoolExecutor.execute(command)
+        }
     }
 
 
